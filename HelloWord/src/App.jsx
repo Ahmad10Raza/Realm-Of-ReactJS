@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// First component
+function Welcome() {
+  return <h1>Welcome to React!</h1>;
 }
 
-export default App
+// Second component
+function Message() {
+  return <p>This is your first multi-component file.</p>;
+}
+
+
+// Main App component rendering both
+function App() {
+
+  let [counter, SetCounter] = useState(15)
+
+const AddValue = () => {
+  if (counter < 19){
+    
+  SetCounter(counter + 1)
+    
+  }
+ }
+
+ const SubValue = () => {
+  if (counter > 0 ){
+    SetCounter(counter - 1)
+  }
+  
+ }
+
+  return (
+    <div>
+      <Welcome />
+      <Message />
+
+
+
+    <button onClick={AddValue}>Increment {counter}</button>
+
+    <button onClick={SubValue}>Value {counter}</button>
+    <p>{counter}</p>
+
+    </div>
+  );
+}
+
+export default App;
